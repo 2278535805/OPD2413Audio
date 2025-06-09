@@ -1,0 +1,5 @@
+TMPDIR=${0%/*}/system
+for i in `/bin/find $TMPDIR -type f -printf "%P "`; do
+    /bin/mount /$TMPDIR/$i /$i
+    restorecon /$i
+done

@@ -1,0 +1,12 @@
+ro.vendor.audio.dump.mixer=true
+ro.vendor.audio.sfx.earadj=false
+ro.vendor.audio.sfx.scenario=false
+ro.vendor.audio.soundfx.usb=false
+ro.audio.hifi=true
+ro.vendor.audio.hifi=true
+ro.vendor.audio.feature.fade=false
+vendor.audio.offload.passthrough=true
+ro.audio.usb.period_us=0
+vendor.audio.lowpower=false
+vendor.audio.volume.headset.gain.depcal=true
+vendor.audio.feature.kpi_optimize.enable=false
