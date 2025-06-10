@@ -202,12 +202,43 @@
     <!-- vbat related data -->
     <ctl name="GSM mode Enable" value="OFF" />
 
+    <!-- Ray: Smart PA related settings -->
     <ctl name="aw_dev_0_prof" value="Music" />
     <ctl name="aw_dev_1_prof" value="Music" />
     <ctl name="aw_dev_2_prof" value="Music" />
     <ctl name="aw_dev_3_prof" value="Music" />
     <ctl name="aw_dev_5_prof" value="Music" />
     <ctl name="aw_dev_6_prof" value="Music" />
+    <ctl name="aw_dev_0_switch" value="Disable" />
+    <ctl name="aw_dev_1_switch" value="Disable" />
+    <ctl name="aw_dev_2_switch" value="Disable" />
+    <ctl name="aw_dev_3_switch" value="Disable" />
+    <ctl name="aw_dev_5_switch" value="Disable" />
+    <ctl name="aw_dev_6_switch" value="Disable" />
+    <ctl name="aw_dev_0_monitor" value="Disable" />
+    <ctl name="aw_dev_1_monitor" value="Disable" />
+    <ctl name="aw_dev_2_monitor" value="Disable" />
+    <ctl name="aw_dev_3_monitor" value="Disable" />
+    <ctl name="aw_dev_5_monitor" value="Disable" />
+    <ctl name="aw_dev_6_monitor" value="Disable" />
+    <ctl name="aw_dev_0_iv_output" value="Disable" />
+    <ctl name="aw_dev_1_iv_output" value="Disable" />
+    <ctl name="aw_dev_2_iv_output" value="Disable" />
+    <ctl name="aw_dev_3_iv_output" value="Disable" />
+    <ctl name="aw_dev_5_iv_output" value="Disable" />
+    <ctl name="aw_dev_6_iv_output" value="Disable" />
+    <ctl name="aw882xx_fadein_us" value="50" />
+    <ctl name="aw882xx_fadeout_us" value="100" />
+
+    <!-- Ray: A2DP Offload settings -->
+    <ctl name="BT set feedback channel" value="Off" />
+
+    <!-- OPLUS_FEATURE_RINGTONE_HAPTIC Add for set haptics vmax value -->
+    <!-- Ray: Add feedback to improve accuracy -->
+    <ctl name="Haptics Amplitude Step" value="156" />
+    <ctl name="Haptics VISENSE Switch" value="On" />
+
+
     <ctl name="aw_dev_0_switch" value="Disable" />
     <ctl name="aw_dev_1_switch" value="Disable" />
     <ctl name="aw_dev_2_switch" value="Disable" />
@@ -356,17 +387,31 @@
 
     <path name="speaker">
         <ctl name="aw_dev_0_prof" value="Music" />
-        <ctl name="aw_dev_0_switch" value="Enable" />
         <ctl name="aw_dev_1_prof" value="Music" />
-        <ctl name="aw_dev_1_switch" value="Enable" />
         <ctl name="aw_dev_2_prof" value="Music" />
-        <ctl name="aw_dev_2_switch" value="Enable" />
         <ctl name="aw_dev_3_prof" value="Music" />
-        <ctl name="aw_dev_3_switch" value="Enable" />
         <ctl name="aw_dev_5_prof" value="Music" />
-        <ctl name="aw_dev_5_switch" value="Enable" />
         <ctl name="aw_dev_6_prof" value="Music" />
+        <ctl name="aw_dev_0_switch" value="Enable" />
+        <ctl name="aw_dev_1_switch" value="Enable" />
+        <ctl name="aw_dev_2_switch" value="Enable" />
+        <ctl name="aw_dev_3_switch" value="Enable" />
+        <ctl name="aw_dev_5_switch" value="Enable" />
         <ctl name="aw_dev_6_switch" value="Enable" />
+        <ctl name="aw_dev_0_monitor" value="Enable" />
+        <ctl name="aw_dev_1_monitor" value="Enable" />
+        <ctl name="aw_dev_2_monitor" value="Enable" />
+        <ctl name="aw_dev_3_monitor" value="Enable" />
+        <ctl name="aw_dev_5_monitor" value="Enable" />
+        <ctl name="aw_dev_6_monitor" value="Enable" />
+        <ctl name="aw_dev_0_iv_output" value="Enable" />
+        <ctl name="aw_dev_1_iv_output" value="Enable" />
+        <ctl name="aw_dev_2_iv_output" value="Enable" />
+        <ctl name="aw_dev_3_iv_output" value="Enable" />
+        <ctl name="aw_dev_5_iv_output" value="Enable" />
+        <ctl name="aw_dev_6_iv_output" value="Enable" />
+        <ctl name="aw882xx_fadein_us" value="0" />
+        <ctl name="aw882xx_fadeout_us" value="0" />
     </path>
 
     <path name="speaker-prot">
@@ -603,17 +648,31 @@
 
     <path name="handset">
         <ctl name="aw_dev_0_prof" value="Music" />
-        <ctl name="aw_dev_0_switch" value="Enable" />
         <ctl name="aw_dev_1_prof" value="Music" />
-        <ctl name="aw_dev_1_switch" value="Enable" />
         <ctl name="aw_dev_2_prof" value="Music" />
-        <ctl name="aw_dev_2_switch" value="Enable" />
         <ctl name="aw_dev_3_prof" value="Music" />
-        <ctl name="aw_dev_3_switch" value="Enable" />
         <ctl name="aw_dev_5_prof" value="Music" />
-        <ctl name="aw_dev_5_switch" value="Enable" />
         <ctl name="aw_dev_6_prof" value="Music" />
+        <ctl name="aw_dev_0_switch" value="Enable" />
+        <ctl name="aw_dev_1_switch" value="Enable" />
+        <ctl name="aw_dev_2_switch" value="Enable" />
+        <ctl name="aw_dev_3_switch" value="Enable" />
+        <ctl name="aw_dev_5_switch" value="Enable" />
         <ctl name="aw_dev_6_switch" value="Enable" />
+        <ctl name="aw_dev_0_monitor" value="Enable" />
+        <ctl name="aw_dev_1_monitor" value="Enable" />
+        <ctl name="aw_dev_2_monitor" value="Enable" />
+        <ctl name="aw_dev_3_monitor" value="Enable" />
+        <ctl name="aw_dev_5_monitor" value="Enable" />
+        <ctl name="aw_dev_6_monitor" value="Enable" />
+        <ctl name="aw_dev_0_iv_output" value="Enable" />
+        <ctl name="aw_dev_1_iv_output" value="Enable" />
+        <ctl name="aw_dev_2_iv_output" value="Enable" />
+        <ctl name="aw_dev_3_iv_output" value="Enable" />
+        <ctl name="aw_dev_5_iv_output" value="Enable" />
+        <ctl name="aw_dev_6_iv_output" value="Enable" />
+        <ctl name="aw882xx_fadein_us" value="0" />
+        <ctl name="aw882xx_fadeout_us" value="0" />
     </path>
 
     <path name="handset-mic">
@@ -793,8 +852,9 @@
     </path>
 
     <path name="headphones">
-        <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
+        <ctl name="RX_HPH_PWR_MODE" value="HIFI" />
         <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
+        <ctl name="LDOH Enable" value="On" />
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
         <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
@@ -803,14 +863,14 @@
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="HPHL Compander" value="1" />
         <ctl name="HPHR Compander" value="1" />
-        <ctl name="HPHL XTALK" value="1" />
-        <ctl name="HPHR XTALK" value="1" />
+        <ctl name="HPHL XTALK" value="0" />
+        <ctl name="HPHR XTALK" value="0" />
         <ctl name="HPHL_RDAC Switch" value="1" />
         <ctl name="HPHR_RDAC Switch" value="1" />
-        <ctl name="RX_RX0 Digital Volume" value="82" />
-        <ctl name="RX_RX1 Digital Volume" value="82" />
-        <ctl name="HPHL Volume" value="16" />
-        <ctl name="HPHR Volume" value="16" />
+        <ctl name="RX_RX0 Digital Volume" value="84" />
+        <ctl name="RX_RX1 Digital Volume" value="84" />
+        <ctl name="HPHL Volume" value="20" />
+        <ctl name="HPHR Volume" value="20" />
     </path>
 
     <path name="headphones-and-haptics">
@@ -1663,26 +1723,26 @@
         <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB" />
         <ctl name="RX INT0_1 MIX1 INP0" value="RX0" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
-        <ctl name="RX HPH Mode" value="CLS_H_LOHIFI" />
+        <ctl name="RX_HPH_PWR_MODE" value="HIFI" />
+        <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
         <ctl name="HPHL Compander" value="1" />
-        <ctl name="HPHL XTALK" value="1" />
+        <ctl name="HPHL XTALK" value="0" />
         <ctl name="HPHL_RDAC Switch" value="1" />
         <ctl name="RX_RX0 Digital Volume" value="84" />
-        <ctl name="HPHL Volume" value="16" />
+        <ctl name="HPHL Volume" value="20" />
     </path>
 
     <path name="mmi-headphone-right">
         <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB" />
         <ctl name="RX INT1_1 MIX1 INP0" value="RX1" />
         <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT" />
-        <ctl name="RX_HPH_PWR_MODE" value="LOHIFI" />
-        <ctl name="RX HPH Mode" value="CLS_H_LOHIFI" />
+        <ctl name="RX_HPH_PWR_MODE" value="HIFI" />
+        <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
         <ctl name="HPHR Compander" value="1" />
-        <ctl name="HPHR XTALK" value="1" />
+        <ctl name="HPHR XTALK" value="0" />
         <ctl name="HPHR_RDAC Switch" value="1" />
         <ctl name="RX_RX1 Digital Volume" value="84" />
-        <ctl name="HPHR Volume" value="16" />
+        <ctl name="HPHR Volume" value="20" />
     </path>
 
     <path name="main-mic-loopback">

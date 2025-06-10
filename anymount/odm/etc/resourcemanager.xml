@@ -34,7 +34,7 @@
 <resource_manager_info>
     <version>2.0</version>
     <config_params>
-        <param key="native_audio_mode" value="false"/>
+        <param key="native_audio_mode" value="multiple_mix_dsp"/>
         <!-- Uncomment HIFI Filter Headphones related sections when set this
              hifi_filter key to true -->
         <param key="hifi_filter" value="false"/>
@@ -62,15 +62,15 @@
         <param key="oplus_multi_record" value="true"/>
         <!-- YeWenliang@MULTIMEDIA.AUDIODRIVER, 2023/09/11, Add for OPREC AUDREC V2.0 -->
         <param key="record_use_ap_oprec_audrec" value="enable"/>
-        <param key="record_track_support" value="false"/>
+        <param key="record_track_support" value="true"/>
         <!-- Yongzhi.Zhang@MULTIMEDIA.AUDIODRIVER.FEATURE, 2021/10/18, Add for hdr record -->
-        <param key="oplus_hdr_record" value="false"/>
+        <param key="oplus_hdr_record" value="true"/>
         <!-- YeWenliang@MULTIMEDIA.AUDIODRIVER, 2021/08/27, Add for smartpa power monitor -->
         <param key="support_smartpa_pm" value="true"/>
         <!-- Zhao.Pan@MULTIMEDIA.AUDIODRIVER.FEEDBACK, 2022/04/12, add for speaker err feedback -->
         <param key="oplus_check_speaker" value="true"/>
         <!-- YeWenliang@MULTIMEDIA.AUDIODRIVER, 2021/08/31, Add for ear protection -->
-        <param key="oplus_ear_protection_enable" value="true"/>
+        <param key="oplus_ear_protection_enable" value="false"/>
         <!-- YeWenliang@MULTIMEDIA.AUDIODRIVER, 2021/10/21, Add for power analysis -->
         <param key="power_analysis_enable" value="true"/>
         <!-- ZhaoShengtao@MULTIMEDIA.AUDIODRIVER, 2021/10/28, Add for audio abnormal detect -->
@@ -96,10 +96,10 @@
         <param key="unidirectional_recording_support" value="false"/>
         <!-- Minyi.Hu@MULTIMEDIA.AUDIODRIVER, 2022/08/26, Add for smart pa power control -->
         <param key="lowbattery_speaker_profile_support" value="false"/>
-        <param key="oplus_opve_err_fb" value="true"/>
+        <param key="oplus_opve_err_fb" value="false"/>
         <param key="oplus_opve_standard_version" value="true"/>
         <!-- Yongzhi.Zhang@MULTIMEDAI.AUDIODRIVER.HAL, 2023/11/22, add for spk prot diff latency feature -->
-        <param key="speaker_diff_latency_support" value ="false" />
+        <param key="speaker_diff_latency_support" value ="true" />
         <!-- HuangLiang@MULTIMEDIA.AUDIODRIVER, 2024/03/05, Add for oplus tablet. -->
         <param key="oplus_handset_support" value="false"/>
     </config_params>
@@ -192,26 +192,26 @@
     <group_device_cfg>
         <upd_rx>
             <snd_device name="handset" />
-            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="1" />
+            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="1" />
         </upd_rx>
         <handset>
-            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="1" />
+            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="1" />
         </handset>
         <speaker>
-            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="3" />
+            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="3" />
         </speaker>
         <speaker_voice>
-            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="1" />
+            <group_dev sample_rate = "0" channels="0" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="1" />
         </speaker_voice>
         <upd_rx_handset>
             <snd_device name="speaker" />
-            <devicepp_mfc sample_rate="96000" channels="2" bit_width="16" />
-            <group_dev sample_rate = "96000" channels="2" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="3" />
+            <devicepp_mfc sample_rate="96000" channels="2" bit_width="32" />
+            <group_dev sample_rate = "96000" channels="2" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="3" />
         </upd_rx_handset>
         <upd_rx_speaker>
             <snd_device name="speaker" />
-            <devicepp_mfc sample_rate="96000" channels="2" bit_width="16" />
-            <group_dev sample_rate = "96000" channels="2" bit_fmt="PAL_AUDIO_FMT_PCM_S16_LE" slot_mask="3" />
+            <devicepp_mfc sample_rate="96000" channels="2" bit_width="32" />
+            <group_dev sample_rate = "96000" channels="2" bit_fmt="PAL_AUDIO_FMT_PCM_S32_LE" slot_mask="3" />
         </upd_rx_speaker>
     </group_device_cfg>
     <device_profile>
@@ -975,7 +975,7 @@
             <bit_width>32</bit_width>
             <snd_device_name>speaker</snd_device_name>
             <speaker_protection_enabled>1</speaker_protection_enabled>
-            <fractional_sr>0</fractional_sr>
+            <fractional_sr>1</fractional_sr>
             <!-- To enable external EC reference the flag extec_ref_enabled must be added as 1 -->
             <ext_ec_ref_enabled>0</ext_ec_ref_enabled>
             <!-- Flag to specify cps mode which is applicable
@@ -1083,7 +1083,7 @@
             <ext_ec_ref_enabled>0</ext_ec_ref_enabled>
             <samplerate>48000</samplerate>
             <bit_width>32</bit_width>
-            <fractional_sr>0</fractional_sr>
+            <fractional_sr>1</fractional_sr>
             <snd_device_name>handset</snd_device_name>
             <handset_protection_enabled>0</handset_protection_enabled>
           <usecase>
@@ -1209,7 +1209,7 @@
             <max_channels>1</max_channels>
             <channels>1</channels>
             <snd_device_name>bt-a2dp</snd_device_name>
-            <samplerate>44100</samplerate>
+            <fractional_sr>1</fractional_sr>
             <bit_width>16</bit_width>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
@@ -1222,7 +1222,7 @@
             <max_channels>1</max_channels>
             <channels>1</channels>
             <snd_device_name>bt-ble</snd_device_name>
-            <samplerate>44100</samplerate>
+            <fractional_sr>1</fractional_sr>
             <bit_width>16</bit_width>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
@@ -1235,7 +1235,7 @@
             <max_channels>1</max_channels>
             <channels>1</channels>
             <snd_device_name>bt-ble</snd_device_name>
-            <samplerate>44100</samplerate>
+            <fractional_sr>1</fractional_sr>
             <bit_width>16</bit_width>
         </out-device>
         <out-device>
@@ -1244,7 +1244,7 @@
             <max_channels>1</max_channels>
             <channels>1</channels>
             <snd_device_name>bt-sco</snd_device_name>
-            <samplerate>8000</samplerate>
+            <fractional_sr>1</fractional_sr>
             <bit_width>16</bit_width>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>

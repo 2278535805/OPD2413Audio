@@ -18,53 +18,77 @@
     <mixPorts>
         <mixPort name="virtual output" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="virtual output2" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="virtual output3" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="virtual output4" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="virtual output5" role="source">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="44100" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </mixPort>
         <mixPort name="virtual input" role="sink">
             <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_32_BIT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
+            <profile name="" format="AUDIO_FORMAT_PCM_FLOAT"
+                     samplingRates="44100 48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
         </mixPort>
     </mixPorts>
     <devicePorts>
         <devicePort tagName="Virtual Host Out" type="AUDIO_DEVICE_OUT_IP" role="sink" address="127.0.0.1">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="Virtual Host Out2" type="AUDIO_DEVICE_OUT_IP" role="sink" address="127.0.0.2">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="Virtual Host Out3" type="AUDIO_DEVICE_OUT_IP" role="sink" address="127.0.0.3">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="Virtual Host Out4" type="AUDIO_DEVICE_OUT_IP" role="sink" address="127.0.0.4">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="Virtual Host Out5" type="AUDIO_DEVICE_OUT_IP" role="sink" address="127.0.0.5">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="44100" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
         </devicePort>
         <devicePort tagName="Virtual Host In" type="AUDIO_DEVICE_IN_IP" role="source" address="127.0.1.1">
-            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                     samplingRates="48000" channelMasks="AUDIO_CHANNEL_IN_STEREO"/>
         </devicePort>
     </devicePorts>
     <routes>
