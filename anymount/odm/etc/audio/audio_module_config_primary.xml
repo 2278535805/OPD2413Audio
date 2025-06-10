@@ -28,6 +28,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </mixPort>
         <mixPort name="deep_buffer_hires_out" role="source" flags="DEEP_BUFFER">
+            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
             <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
             <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
