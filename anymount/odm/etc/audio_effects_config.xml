@@ -7,39 +7,10 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 
     <libraries>
         <library name="dynamics_processing" path="libdynamicsprocessingaidl.so"/>
-        <!-- OPLUS_BUG_STABILITY -->
-        <!-- Liang.Xu@MULTIMEDIA.AUDIOSERVER.FRAMEWORK, 2024/07/10, remove unused effect for vts -->
-        <!--library name="quasar" path="libquasar.so"/-->
-        <!-- OPLUS_BUG_STABILITY -->
-        <!-- #ifdef OPLUS_FEATURE_AUDIOX-->
-        <!-- QUANWENZHENG@MULTIMEDIA.AUDIOSERVER.EFFECT, 2023/07/18, Add for audiox effect -->
-        <library name="oplus_audiox_sw" path="libOplusAudioxAidl.so"/>
-        <!-- #ifdef OPLUS_FEATURE_AUDIOX-->
-        <!-- OPLUS SPATIALIZER-->
-        <!-- Liang.Xu@MULTIMEDIA.AUDIOSERVER.EFFECT, 2023/04/18, add for oplus spatializer -->
-        <library name="spatializersw" path="libOplusSpatializerAidl.so"/>
-        <!-- OPLUS SPATIALIZER END -->
-        <!-- Dongxu.Chen@MULTIMEDIA.AUDIOSERVER.EFFECT, 2024/12/07, add for oplus MusicSeparation -->
-        <library name="music_separation" path="liboplusMssEffectsAidl.so"/>
-        <!-- add for oplus MusicSeparation END -->
     </libraries>
 
     <effects>
         <effect name="dynamics_processing" library="dynamics_processing" uuid="e0e6539b-1781-7261-676f-6d7573696340"/>
-        <!-- OPLUS_BUG_STABILITY -->
-        <!-- Liang.Xu@MULTIMEDIA.AUDIOSERVER.FRAMEWORK, 2024/07/10, remove unused effect for vts -->
-        <!--effect name="quasar" library="quasar" uuid="71d0e2ee-e44d-483d-a809-09e75ee55ecd"/-->
-        <!-- OPLUS_BUG_STABILITY -->
-        <!-- #ifdef OPLUS_FEATURE_AUDIOX-->
-        <!-- QUANWENZHENG@MULTIMEDIA.AUDIOSERVER.EFFECT, 2023/07/18, Add for audiox effect -->
-        <effect name="oplusaudiox" library="oplus_audiox_sw" uuid="41f6c0f4-5d8f-11ec-bf63-0242ac130002"/>
-        <!-- #ifdef OPLUS_FEATURE_AUDIOX-->
-        <!-- Liang.Xu@MULTIMEDIA.AUDIOSERVER.EFFECT, 2023/04/18, add for oplus spatializer -->
-        <effect name="spatializer" library="spatializersw" uuid="de4d6aaf-4e9d-473d-8168-4ce92d50a637"/>
-        <!-- OPLUS SPATIALIZER END -->
-        <!-- DOngxu.Chen@MULTIMEDIA.AUDIOSERVER.EFFECT, 2024/12/07, add for oplus MusicSeparation -->
-        <effect name="mss_effect" library="music_separation" uuid="741864ae-acba-51ab-ada4-c271d3a4b1b3" type="f77ef6c3-0391-549a-b7e8-52acb71c8289"/>
-        <!-- add for oplus MusicSeparation END -->
     </effects>
 
     <preprocess>
