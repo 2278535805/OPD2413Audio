@@ -1,12 +1,66 @@
-ro.vendor.audio.dump.mixer=true
-ro.vendor.audio.sfx.earadj=false
-ro.vendor.audio.sfx.scenario=false
-ro.vendor.audio.soundfx.usb=false
-ro.audio.hifi=true
-ro.vendor.audio.hifi=true
-ro.vendor.audio.feature.fade=false
+# Ray 2024/3/16: Improved ULL Quality
+
+# Low latency configuration
+aaudio.mmap_policy=2
+aaudio.mmap_exclusive_policy=3
+aaudio.hw_burst_min_usec=2000
+vendor.audio_hal.period_multiplier=2
+vendor.audio.adm.buffering.ms=2
+vendor.audio.ull_record_period_multiplier=2
+af.fast_track_multiplier=1
+
+# Improve Qualcomm process
+vendor.audio.hal.output.suspend.supported=true
+persist.dev.pm.dyn_samplingrate=1
+vendor.audio.feature.usb_offload_sidetone_volume.enable=true
+persist.bluetooth.leaudio_offload.disabled=false
+persist.bluetooth.leaudio.allow.multiple.context=true
+
+
+# Bluetooth improves
+persist.vendor.bt.aac_vbr_frm_ctl.enabled=false
+persist.vendor.bt.aac_frm_ctl.enabled=false
+persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
+persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
+persist.bluetooth.a2dp_offload.cap=sbc-aptx-aptxtws-aptxhd-aptxadaptiver2-aac-lc3-ldac-lhdc
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptiver2-aac-lc3-ldac-lhdc
+persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptiver2-aac-lc3-ldac-lhdc
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptiver2-aac-lc3-ldac-lhdc
+bluetooth.profile.bap.broadcast.assist.enabled=true
+bluetooth.profile.bap.unicast.client.enabled=true
+bluetooth.profile.bap.broadcast.source.enabled=true
+bluetooth.profile.vcp.controller.enabled=true
+bluetooth.profile.avrcp.controller.enabled=true
+bluetooth.profile.sap.server.enabled=true
+ro.vendor.audio.btsamplerate.adaptive=true
+
+# Hardware offload configuration
+vendor.audio.offload.gapless.enabled=true
+vendor.audio.offload.track.enable=true
+vendor.audio.offload.multiple.enabled=true
 vendor.audio.offload.passthrough=true
-ro.audio.usb.period_us=0
-vendor.audio.lowpower=false
-vendor.audio.volume.headset.gain.depcal=true
-vendor.audio.feature.kpi_optimize.enable=false
+audio.offload.pcm.enable=true
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+audio.offload.pcm.32bit.enable=true
+audio.offload.pcm.float.enable=true
+persist.audio.format.24bit=true
+persist.audio.format.32bit=true
+persist.audio.format.float=true
+persist.vendor.audio.format.24bit=true
+persist.vendor.audio.format.32bit=true
+persist.vendor.audio.format.float=true
+
+# OPlus
+persist.bluetooth.a2dp_aac_abr.enable=false
+ro.oplus.audio.thermal_control=0
+ro.bluetooth.leaudio.le_audio_connection_by_default=true
+persist.bluetooth.leaudio.bypass_allow_list=true
+ro.audio.multiappvolumeadjust.curve_support=true
+persist.oplus.audio.spllimit.support=false
+persist.vendor.bluetooth.3rd.lhdcv5.support=true
+persist.vendor.bluetooth.3rd.lhdcv3.support=true
+persist.sys.oplus.bt.le_audio_white_list_enable=true
+ro.oplus.audio.third_party_playback_capture=0
+vendor.audio.hdr.spf.record.enable=true
+vendor.audio.hdr.record.enable=true
