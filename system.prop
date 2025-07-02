@@ -35,6 +35,7 @@ bluetooth.profile.sap.server.enabled=true
 ro.vendor.audio.btsamplerate.adaptive=true
 
 # Hardware offload configuration
+audio.offload.disable=false
 vendor.audio.offload.gapless.enabled=true
 vendor.audio.offload.track.enable=true
 vendor.audio.offload.multiple.enabled=true
@@ -64,3 +65,5 @@ persist.sys.oplus.bt.le_audio_white_list_enable=true
 ro.oplus.audio.third_party_playback_capture=0
 vendor.audio.hdr.spf.record.enable=true
 vendor.audio.hdr.record.enable=true
+
+ro.oplus.audio.NoDefaultDeepbuffer=true
