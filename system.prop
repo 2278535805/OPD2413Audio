@@ -8,6 +8,7 @@ vendor.audio_hal.period_multiplier=2
 vendor.audio.adm.buffering.ms=2 # 1会爆音
 vendor.audio.ull_record_period_multiplier=2
 af.fast_track_multiplier=1
+ro.audio.usb.period_us=0
 
 # Improve Qualcomm process
 vendor.audio.hal.output.suspend.supported=true
@@ -67,3 +68,11 @@ vendor.audio.hdr.spf.record.enable=true
 vendor.audio.hdr.record.enable=true
 
 ro.oplus.audio.NoDefaultDeepbuffer=true
+vendor.audio.feature.kpi_optimize.enable=false
+ro.vendor.audio.sfx.earadj=false
+ro.vendor.audio.sfx.scenario=false
+ro.vendor.audio.soundfx.usb=false
+vendor.audio.volume.headset.gain.depcal=true
+ro.vendor.audio.feature.fade=false
+ro.audio.hifi=true
+ro.vendor.audio.hifi=true
