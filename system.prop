@@ -76,3 +76,7 @@ vendor.audio.volume.headset.gain.depcal=true
 ro.vendor.audio.feature.fade=false
 ro.audio.hifi=true
 ro.vendor.audio.hifi=true
+
+ro.control_privapp_permissions=log
+ro.vendor.dolby.dax.version=DAX3_3.12.0.8_r1
+persist.vendor.audio.dolby.tws_tuning=true
