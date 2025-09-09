@@ -6,9 +6,11 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 <modules>
 <module name="default">
     <mixPorts>
-        <!-- based on role, mixport flags are identified as either input flags or output flags-->
-        <!-- start of source mixports maxOpenCount="2" maxActiveCount="2"-->
-        <mixPort name="low_latency_out" role="source" flags="PRIMARY FAST">
+        <!-- based on role, mixport flags are identified as either input flags or
+        output flags-->
+        <!-- start of source mixports-->
+        <mixPort name="low_latency_out" role="source" flags="PRIMARY FAST" maxOpenCount="2" maxActiveCount="2">
+            <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
@@ -29,13 +31,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
-        </mixPort> -->
-        <!-- <mixPort name="deep_buffer_hires_out" role="source" flags="DEEP_BUFFER">
-            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </mixPort> -->
         <mixPort name="mmap_no_irq_out" role="source" flags="DIRECT MMAP_NOIRQ">
             <profile samplingRates="44100 48000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
@@ -99,9 +94,10 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 
         <!-- start of sink mixports-->
         <mixPort name="primary_in" role="sink" maxOpenCount="2" maxActiveCount="2">
-            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="8000 11025 16000 22050 32000 44100 48000 64000 88200 96000 128000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="8000 11025 16000 22050 32000 44100 48000 64000 88200 96000 128000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="8000 11025 16000 22050 32000 44100 48000 64000 88200 96000 128000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="8000 11025 16000 22050 32000 44100 48000 64000 88200 96000 128000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_32_BIT" />
         </mixPort>
         <mixPort name="compress_in" role="sink" flags="DIRECT">
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
@@ -191,30 +187,18 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         </devicePort>
         <devicePort tagName="bt_sco_out" deviceType="OUT_DEVICE" connection="bt-sco" role="sink">
             <profile samplingRates="8000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="8000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="8000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </devicePort>
         <devicePort tagName="bt_sco_headset" deviceType="OUT_HEADSET" connection="bt-sco" role="sink">
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FLOAT_32_BIT" />
+           <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
         </devicePort>
         <devicePort tagName="bt_sco_car_kit" deviceType="OUT_CARKIT" connection="bt-sco" role="sink">
             <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </devicePort>
         <devicePort tagName="telephony_tx" deviceType="OUT_TELEPHONY_TX" role="sink" attached="true">
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
         </devicePort>
         <!-- Todo check the sanity of below later w.r.t channel layouts -->
         <devicePort tagName="hdmi_out" deviceType="OUT_DEVICE" connection="hdmi" role="sink">
@@ -247,25 +231,25 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         </devicePort -->
         <!-- #endif OPLUS_BUG_STABILITY -->
         <devicePort tagName="bt_a2dp_out" deviceType="OUT_DEVICE" connection="bt-a2dp" role="sink" encodings="audio/x-sbc audio/mp4a.40 audio/aptx audio/vnd.qcom.aptx.hd audio/vnd.sony.ldac audio/x-celt audio/vnd.qcom.aptx.adaptive audio/vnd.qcom.aptx.twsp audio/x-lc3">
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </devicePort>
         <devicePort tagName="bt_a2dp_headphones" deviceType="OUT_HEADPHONE" connection="bt-a2dp" role="sink" encodings="audio/x-sbc audio/mp4a.40 audio/aptx audio/vnd.qcom.aptx.hd audio/vnd.sony.ldac audio/x-celt audio/vnd.qcom.aptx.adaptive audio/vnd.qcom.aptx.twsp audio/x-lc3">
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </devicePort>
         <devicePort tagName="bt_a2dp_speaker" deviceType="OUT_SPEAKER" connection="bt-a2dp" role="sink" encodings="audio/x-sbc audio/mp4a.40 audio/aptx audio/vnd.qcom.aptx.hd audio/vnd.sony.ldac audio/x-celt audio/vnd.qcom.aptx.adaptive audio/vnd.qcom.aptx.twsp audio/x-lc3">
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
-            <profile samplingRates="44100 48000 88200 96000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="INT_32_BIT" />
+            <profile samplingRates="44100 48000 88200 96000 192000" channelLayouts="LAYOUT_STEREO" formatType="PCM" pcmType="FLOAT_32_BIT" />
         </devicePort>
         <devicePort tagName="bt_ble_headset" deviceType="OUT_HEADSET" connection="bt-le" role="sink" encodings="audio/x-lc3 audio/vnd.qcom.aptx.adaptive.r3 audio/vnd.qcom.aptx.adaptive.r4">
             <profile samplingRates="8000 16000 32000 48000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO" formatType="PCM" pcmType="INT_16_BIT" />
@@ -296,10 +280,12 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 
         <!-- start of source DEVICE PORT -->
         <devicePort tagName="built_in_mic" deviceType="IN_MICROPHONE" role="source" attached="true" defaultDevice="true" address="bottom">
+            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_32_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
         </devicePort>
         <devicePort tagName="built_in_back_mic" deviceType="IN_MICROPHONE_BACK" role="source" attached="true" address="back">
+            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_32_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
         </devicePort>
@@ -310,6 +296,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         </devicePort> -->
         <!-- #endif OPLUS_BUG_STABILITY -->
         <devicePort tagName="wired_headset_mic" deviceType="IN_HEADSET" connection="analog" role="source">
+            <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_32_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_24_BIT" />
             <profile samplingRates="8000 11025 12000 16000 22050 24000 32000 44100 48000 88200 96000 176400 192000" channelLayouts="LAYOUT_MONO LAYOUT_STEREO LAYOUT_FRONT_BACK" formatType="PCM" pcmType="INT_16_BIT" />
         </devicePort>
@@ -335,10 +322,10 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <profile samplingRates="8000 16000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
         </devicePort>
         <devicePort tagName="telephony_rx" deviceType="IN_TELEPHONY_RX" role="source" attached="true">
-            <profile samplingRates="8000 16000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
-            <profile samplingRates="8000 16000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FIXED_Q_8_24" />
-            <profile samplingRates="8000 16000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_24_BIT" />
-            <profile samplingRates="8000 16000 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_16_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="FIXED_Q_8_24" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_24_BIT" />
+            <profile samplingRates="8000 16000 24000 32000 44100 48000" channelLayouts="LAYOUT_MONO" formatType="PCM" pcmType="INT_32_BIT" />
         </devicePort>
         <devicePort tagName="usb_mic" deviceType="IN_DEVICE" connection="usb" role="source" >
         </devicePort>
@@ -366,31 +353,31 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
     <routes>
         <route type="mix" sink="speaker" sources="low_latency_out,deep_buffer_out,direct_pcm_spk_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,telephony_rx,spatializer" />
 
-        <route type="mix" sink="wired_headset" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,telephony_rx,spatializer" />
-        <route type="mix" sink="wired_headphones" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,mmap_no_irq_out,haptics_out,telephony_rx,spatializer" />
+        <route type="mix" sink="wired_headset" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,telephony_rx,spatializer" />
+        <route type="mix" sink="wired_headphones" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,mmap_no_irq_out,haptics_out,telephony_rx,spatializer" />
 
-        <route type="mix" sink="usb_device_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,hifi_playback,telephony_rx,spatializer" />
-        <route type="mix" sink="usb_headset" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,hifi_playback,telephony_rx,spatializer" />
+        <route type="mix" sink="usb_device_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,hifi_playback,telephony_rx,spatializer" />
+        <route type="mix" sink="usb_headset" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,hifi_playback,telephony_rx,spatializer" />
 
-        <route type="mix" sink="bt_sco_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
-        <route type="mix" sink="bt_sco_headset" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
-        <route type="mix" sink="bt_sco_car_kit" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
+        <route type="mix" sink="bt_sco_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
+        <route type="mix" sink="bt_sco_headset" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
+        <route type="mix" sink="bt_sco_car_kit" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx" />
 
-        <route type="mix" sink="bt_a2dp_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,spatializer" />
-        <route type="mix" sink="bt_a2dp_headphones" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,spatializer" />
-        <route type="mix" sink="bt_a2dp_speaker" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out" />
+        <route type="mix" sink="bt_a2dp_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,spatializer" />
+        <route type="mix" sink="bt_a2dp_headphones" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,spatializer" />
+        <route type="mix" sink="bt_a2dp_speaker" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out" />
 
-        <route type="mix" sink="bt_ble_speaker" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,telephony_rx" />
-        <route type="mix" sink="bt_ble_headset" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx,spatializer" />
-        <route type="mix" sink="bt_ble_broadcast" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out" />
+        <route type="mix" sink="bt_ble_speaker" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out,telephony_rx" />
+        <route type="mix" sink="bt_ble_headset" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out,telephony_rx,spatializer" />
+        <route type="mix" sink="bt_ble_broadcast" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out" />
 
-        <route type="mix" sink="line_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out" />
+        <route type="mix" sink="line_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,mmap_no_irq_out,haptics_out" />
 
-        <route type="mix" sink="hdmi_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out" />
+        <route type="mix" sink="hdmi_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,voip_playback,raw_out,haptics_out" />
 
-        <route type="mix" sink="proxy_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,haptics_out" />
+        <route type="mix" sink="proxy_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,haptics_out" />
 
-        <route type="mix" sink="ip_out" sources="low_latency_out,deep_buffer_out,deep_buffer_hires_out,direct_pcm_out,compress_offload_out,haptics_out" />
+        <route type="mix" sink="ip_out" sources="low_latency_out,deep_buffer_out,direct_pcm_out,compress_offload_out,haptics_out" />
         <!-- #ifdef OPLUS_BUG_STABILITY -->
         <!-- chenwenxiao@MULTIMEDIA.AUDIOSERVER.FRAMEWORK, 2024/08/08, Modify for link to window -->
         <!-- <route type="mix" sink="fm_out" sources="low_latency_out" /> -->
@@ -399,7 +386,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <!-- #ifdef OPLUS_FEATURE_AUDIO_BINAURAL_RECORD -->
         <!-- YeWenlinag@MULTIMEDIA.AUDIODRIVER.HAL, 2024/06/05, Modify for binaural record -->
         <!-- chenwenxiao@MULTIMEDIA.AUDIOSERVER.FRAMEWORK, 2024/08/08, Modify for link to window -->
-        <route type="mix" sink="primary_in" sources="built_in_mic,built_in_back_mic,wired_headset_mic,bt_sco_headset_mic,telephony_rx,bt_a2dp_mic,echo_reference_mic,bt_le_mic,ip_input_device" />
+        <route type="mix" sink="primary_in" sources="built_in_mic,built_in_back_mic,wired_headset_mic,usb_mic,usb_headset_mic,bt_sco_headset_mic,telephony_rx,bt_a2dp_mic,echo_reference_mic,bt_le_mic,ip_input_device" />
         <!--
         <route type="mix" sink="primary_in" sources="built_in_mic,built_in_back_mic,wired_headset_mic,bt_sco_headset_mic,fm_tuner_mic,telephony_rx,bt_a2dp_mic,echo_reference_mic,bt_le_mic,proxy_input_device,ip_input_device" />
         -->
