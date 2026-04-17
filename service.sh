@@ -14,7 +14,6 @@
 boost() {
     pgrep -f $1 | while read pid; do
     echo $pid > /dev/cpuset/top-app/cgroup.procs
-    echo $pid > /dev/stune/top-app/cgroup.procs
     chrt -p $pid -f 5
     done
 }
