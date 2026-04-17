@@ -26,7 +26,7 @@ boost_tid() {
 
 while true; do
     boost_tid "audioserver" "FastMixer|Audio_Out_.*|AAudio_.*"
-    boost_tid "audiohalservice.qti" "low_latency_out|raw_out_.*|mmap_no_irq_out"
+    boost_tid "audiohalservice.qti" "writer"
 
     sleep 1
 
