@@ -1,16 +1,5 @@
 #!/bin/sh
 
-# while true; do
-#     touchHidlTest -c wo 0 24 0 # 平滑等级 smooth_lv (1-5)
-#     echo "0" > /proc/touchpanel/smooth_level # Force set, try to disable smooth 还是禁用不掉
-
-#     touchHidlTest -c wo 0 25 5 # 灵敏等级 sensitive_lv (0-5)
-#     # touchHidlTest -c wo 0 32 0 # 是否启用手写笔 可禁用面积防误触 (0/1) 打开游戏之前记得断开手写笔连接就行了
-#     sleep 5
-# done
-
-# while [ "$(getprop sys.boot_completed)" != "1" ]; do sleep 5; done && sleep 5
-
 boost() {
     pgrep -f $1 | while read pid; do
     echo $pid > /dev/cpuset/top-app/cgroup.procs
@@ -18,9 +7,25 @@ boost() {
     done
 }
 
+boost_tid() {
+    pgrep -f "$1" | while read pid; do
+        if [ ! -d "/proc/$pid" ]; then
+            continue
+        fi
+        
+        # ps -T -p <PID>
+        for tid in $(ls /proc/$pid/task/); do
+            comm=$(cat /proc/$pid/task/$tid/comm 2>/dev/null)
+            if echo "$comm" | grep -qE "$2"; then
+                chrt -p $tid -f 5
+            fi
+        done
+    done
+}
+
 while true; do
-    boost audioserver
-    boost audiohalservice.qti
+    boost_tid "audioserver" "FastMixer|Audio_Out_.*|AAudio_.*"
+    boost_tid "audiohalservice.qti" "low_latency_out|raw_out_.*|mmap_no_irq_out"
 
     sleep 1
 
