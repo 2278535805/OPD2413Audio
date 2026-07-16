@@ -25,7 +25,7 @@ boost_tid() {
 }
 
 while true; do
-    boost_tid "audioserver" "FastMixer|Audio_Out_.*|AAudio_.*|binder:.*|audioserver"
+    boost_tid "audioserver" "FastMixer|AudioOut_.*|AAudio_.*|binder:.*|audioserver"
     boost_tid "audiohalservice.qti" "writer"
 
     sleep 1
