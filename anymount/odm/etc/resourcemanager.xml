@@ -99,7 +99,7 @@
         <param key="oplus_opve_err_fb" value="false"/>
         <param key="oplus_opve_standard_version" value="true"/>
         <!-- Yongzhi.Zhang@MULTIMEDAI.AUDIODRIVER.HAL, 2023/11/22, add for spk prot diff latency feature -->
-        <param key="speaker_diff_latency_support" value ="true" />
+        <param key="speaker_diff_latency_support" value ="false" />
         <!-- HuangLiang@MULTIMEDIA.AUDIODRIVER, 2024/03/05, Add for oplus tablet. -->
         <param key="oplus_handset_support" value="false"/>
     </config_params>
