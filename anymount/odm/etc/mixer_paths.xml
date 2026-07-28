@@ -221,6 +221,12 @@
     <ctl name="aw_dev_3_monitor" value="Disable" />
     <ctl name="aw_dev_5_monitor" value="Disable" />
     <ctl name="aw_dev_6_monitor" value="Disable" />
+    <ctl name="aw_dev_0_volume" value="0" />
+    <ctl name="aw_dev_1_volume" value="0" />
+    <ctl name="aw_dev_2_volume" value="0" />
+    <ctl name="aw_dev_3_volume" value="0" />
+    <ctl name="aw_dev_5_volume" value="70" />
+    <ctl name="aw_dev_6_volume" value="70" />
     <ctl name="aw_dev_0_iv_output" value="Disable" />
     <ctl name="aw_dev_1_iv_output" value="Disable" />
     <ctl name="aw_dev_2_iv_output" value="Disable" />
